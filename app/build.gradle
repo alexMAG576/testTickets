@@ -1,0 +1,35 @@
+plugins {
+    id 'application'
+    id 'checkstyle'
+
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'org.example.Main'
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.13.0'
+
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.24.2'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.17.2'
+    implementation group: 'org.apache.clerezza.ext', name: 'org.json.simple', version: '0.4'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+
+}
